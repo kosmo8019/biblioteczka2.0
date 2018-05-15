@@ -1,0 +1,26 @@
+<%= form_with(model: ksiazka, local: true) do |form| %>
+  <% if ksiazka.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ksiazka.errors.count, "error") %> prohibited this ksiazka from being saved:</h2>
+
+      <ul>
+      <% ksiazka.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <%= simple_form_for @ksiazka do |f| %>
+    <%= f.input :tytul, label: "Tytuł Książki" %>
+    <%= f.input :opis %>
+    <%= f.input :autor %>
+    <%= f.button :submit %>
+  <% end %>
+
+
+
+<% end %>

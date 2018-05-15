@@ -1,0 +1,2 @@
+class Ksiazka < ApplicationRecord
+end
