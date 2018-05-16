@@ -15,7 +15,8 @@ class KsiazkasController < ApplicationController
 
   # GET /ksiazkas/new
   def new
-    @ksiazka = Ksiazka.new
+    #łączymy ksiażekę  z uzytkownikiem
+    @ksiazka = current_user.Ksiazka.build
   end
 
   # GET /ksiazkas/1/edit
@@ -25,7 +26,7 @@ class KsiazkasController < ApplicationController
   # POST /ksiazkas
   # POST /ksiazkas.json
   def create
-    @ksiazka = Ksiazka.new(ksiazka_params)
+    @ksiazka = current_user.Ksiazka.build(ksiazka_params)
 
     respond_to do |format|
       if @ksiazka.save
