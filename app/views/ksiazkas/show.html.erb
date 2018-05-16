@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h2>
   <strong>Tytul:</strong>
   <%= @ksiazka.tytul %>
-</p>
-
+</h2>
+<h3>
+  <strong>Autor:</strong>
+  <%= @ksiazka.autor %>
+</h3>
 <p>
   <strong>Opis:</strong>
   <%= @ksiazka.opis %>
 </p>
 
-<p>
-  <strong>Autor:</strong>
-  <%= @ksiazka.autor %>
-</p>
+
 
 <%= link_to 'Edit', edit_ksiazka_path(@ksiazka) %> |
+<%= link_to 'Usuń',@ksiazka, method: :delete, data: { confirm: 'Czy napewno?' } %>
 <%= link_to 'Back', ksiazkas_path %>

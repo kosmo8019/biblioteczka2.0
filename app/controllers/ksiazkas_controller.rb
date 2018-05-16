@@ -1,15 +1,16 @@
 class KsiazkasController < ApplicationController
-  before_action :set_ksiazka, only: [:show, :edit, :update, :destroy]
+  before_action :znajdz_ksiazka, only: [:show, :edit, :update, :destroy]
 
   # GET /ksiazkas
   # GET /ksiazkas.json
   def index
-    @ksiazkas = Ksiazka.all
+    @ksiazkas = Ksiazka.all.order("created_at DESC")
   end
 
   # GET /ksiazkas/1
   # GET /ksiazkas/1.json
   def show
+
   end
 
   # GET /ksiazkas/new
@@ -42,7 +43,7 @@ class KsiazkasController < ApplicationController
   def update
     respond_to do |format|
       if @ksiazka.update(ksiazka_params)
-        format.html { redirect_to @ksiazka, notice: 'Ksiazka was successfully updated.' }
+        format.html { redirect_to @ksiazka, notice: '' }
         format.json { render :show, status: :ok, location: @ksiazka }
       else
         format.html { render :edit }
@@ -63,7 +64,7 @@ class KsiazkasController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_ksiazka
+    def znajdz_ksiazka
       @ksiazka = Ksiazka.find(params[:id])
     end
 
@@ -72,3 +73,4 @@ class KsiazkasController < ApplicationController
       params.require(:ksiazka).permit(:tytul, :opis, :autor)
     end
 end
+

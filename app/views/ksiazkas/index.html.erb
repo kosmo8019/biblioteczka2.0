@@ -1,31 +1,13 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Ksiazkas</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Tytul</th>
-      <th>Opis</th>
-      <th>Autor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @ksiazkas.each do |ksiazka| %>
       <tr>
-        <td><%= ksiazka.tytul %></td>
-        <td><%= ksiazka.opis %></td>
-        <td><%= ksiazka.autor %></td>
-        <td><%= link_to 'Show', ksiazka %></td>
-        <td><%= link_to 'Edit', edit_ksiazka_path(ksiazka) %></td>
-        <td><%= link_to 'Destroy', ksiazka, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <h2><%= link_to ksiazka.tytul, ksiazka %></h2>
+
       </tr>
     <% end %>
-  </tbody>
-</table>
+
 
 <br>
 
-<%= link_to 'Nowa Książka', new_ksiazka_path %>
+<h2><%= link_to 'Nowa Książka', new_ksiazka_path %></h2>
