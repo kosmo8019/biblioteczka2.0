@@ -12,9 +12,16 @@
   <strong>Opis:</strong>
   <%= @ksiazka.opis %>
 </p>
-
-
-
-<%= link_to 'Edit', edit_ksiazka_path(@ksiazka) %> |
-<%= link_to 'Usuń',@ksiazka, method: :delete, data: { confirm: 'Czy napewno?' } %>
 <%= link_to 'Back', ksiazkas_path %>
+
+<% if uzytkownik_signed_in? %>
+
+  <% if @ksiazka.uzytkownik_id == current_uzytkownik.id %>
+
+    <%= link_to 'Edit', edit_ksiazka_path(@ksiazka) %> |
+    <%= link_to 'Usuń', @ksiazka, method: :delete, data: {confirm: 'Czy napewno?'} %>
+
+  <% end %>
+
+<% end %>
+
